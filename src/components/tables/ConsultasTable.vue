@@ -1,26 +1,22 @@
 <script setup>
     import { Column, DataTable } from 'primevue';
-    import { ref, onMounted, computed, inject } from 'vue';
+    import { onMounted, computed, inject } from 'vue';
     import { useConsultaAuthStore } from '@/stores/consultaStore';
+    import { useTableFilter } from '@/composables/useTableFilter';
 
-    const authConsultaStore = useConsultaAuthStore()
-    const isLoading = computed(() => authConsultaStore.isLoading)
+    const authConsultaStore = useConsultaAuthStore();
+    const isLoading = computed(() => authConsultaStore.isLoading);
     const searchTerm = inject('searchTerm');
+    const consultas = computed(() => authConsultaStore.consulta);
 
     const loadConsultas = async () => {
-        const result = await authConsultaStore.allConsultas()
+        const result = await authConsultaStore.allConsultas();
         if (!result.success) {
             console.error('Erro ao carregar consultas:', result.error);
         }
-    }
-    const filteredConsulta = computed(() => {
-    const term = searchTerm?.value?.toLowerCase() || '';
-    return authConsultaStore.consulta.filter(consult =>
-        Object.values(consult).some(value =>
-        String(value).toLowerCase().includes(term)
-        )
-    );
-    });
+    };
+
+    const filteredConsulta = useTableFilter(consultas, searchTerm);
     onMounted(async () => {
         await loadConsultas()
     })

@@ -41,5 +41,24 @@ export const authConsultaService = {
                 error: error.message || "Erro inesperado ao tentar agendar consulta"
             }
         }
+    },
+    async deleteConsulta(id){
+        try{
+            const response = await fetch(`${API_BASE}/consulta/${id}`, {
+                method: "DELETE"
+            })
+            if(!response.ok){
+                throw new Error(`Erro ao deletar pet ${response.status}`)
+            }
+            return{
+                success:true
+            }
+        }catch(error){
+            return{
+                success:false,
+                error: error.message || "Erro inesperado ao deletar pet"
+            }
+        }
     }
+
 }

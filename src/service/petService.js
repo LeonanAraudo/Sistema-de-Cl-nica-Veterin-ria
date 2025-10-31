@@ -42,5 +42,22 @@ export const authPetService = {
         }
     }
     },
-
+    async deletePet(id){
+        try{
+            const response = await fetch(`${API_BASE}/pets/${id}`, {
+                method: "DELETE"
+            })
+            if(!response.ok){
+                throw new Error(`Erro ao deletar pet ${response.status}`)
+            }
+            return{
+                success:true
+            }
+        }catch(error){
+            return{
+                success:false,
+                error: error.message || "Erro inesperado ao deletar pet"
+            }
+        }
+    }
 }

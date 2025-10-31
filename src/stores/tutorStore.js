@@ -44,6 +44,18 @@ export const useTutorAuthStore = defineStore("authTutor",{
                 this.isLoading = false
             }
         },
+        async delTutor(id){
+            this.isLoading = true
+            try{
+                const result = await authTutorService.deleteTutor(id)
+                if (result.success) {
+                  this.tutors = this.tutors.filter(t => t.id !== id);
+                    }
+                return result;
+            }finally{
+                this.isLoading= false
+            }
+        }
     }
 
 })

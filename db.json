@@ -25,14 +25,6 @@
       "tutor": "awdawd"
     },
     {
-      "id": "42d5",
-      "nome": "",
-      "raca": "",
-      "idade": "",
-      "especie": "",
-      "tutor": ""
-    },
-    {
       "id": "c399",
       "nome": "dwa",
       "raca": "22",
@@ -131,46 +123,18 @@
   ],
   "tutores": [
     {
-      "id": "1",
-      "nome": "Maria",
-      "telefone": "99999-9999",
-      "email": "maria@email.com",
-      "endereco": "Rua A"
-    },
-    {
-      "id": "dd83",
-      "nome": "Leo leo",
-      "telefone": "86998587670",
-      "email": "rrrrr",
-      "endereco": "Teresina"
-    },
-    {
-      "id": "ad50",
-      "nome": "Leo leo",
-      "telefone": "86998587670",
-      "email": "rrrrr",
-      "endereco": "Teresina"
-    },
-    {
-      "id": "6616",
-      "nome": "Leo leo",
-      "telefone": "86998587670",
-      "email": "rrrrr",
-      "endereco": "Teresina"
-    },
-    {
-      "id": "4ba2",
-      "nome": "Leo leo",
-      "telefone": "86998587670",
-      "email": "dwadaw",
-      "endereco": "Teresina"
-    },
-    {
       "id": "cc1f",
       "nome": "Leo leo",
       "telefone": "86998587670",
       "email": "01647661",
       "endereco": "Teresina"
+    },
+    {
+      "id": "1549",
+      "nome": "loves",
+      "telefone": "213123",
+      "email": "wdawdada",
+      "endereco": "awdad"
     }
   ],
   "consultas": [

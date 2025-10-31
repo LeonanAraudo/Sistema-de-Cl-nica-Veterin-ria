@@ -1,26 +1,24 @@
 <script setup>
-    import { Column, DataTable } from 'primevue';
+    import { Button, Column, DataTable } from 'primevue';
     import { onMounted, computed, inject } from 'vue';
     import { useTutorAuthStore } from '@/stores/tutorStore';
+    import { useTableFilter } from '@/composables/useTableFilter';
+    import { useDeleteHandler } from '@/composables/useDeleteHandler';
 
-    const authTutorStore = useTutorAuthStore()
-    const isLoading = computed(() => authTutorStore.isLoading)
+    const authTutorStore = useTutorAuthStore();
+    const isLoading = computed(() => authTutorStore.isLoading);
     const searchTerm = inject('searchTerm');
+    const tutors = computed(() => authTutorStore.tutors);
 
     const loadTutors = async () => {
-        const result = await authTutorStore.allTutors()
+        const result = await authTutorStore.allTutors();
         if (!result.success) {
             console.error('Erro ao carregar tutores:', result.error);
         }
-    }
-    const filteredTutor = computed(() => {
-    const term = searchTerm?.value?.toLowerCase() || '';
-    return authTutorStore.tutors.filter(tutor =>
-        Object.values(tutor).some(value =>
-        String(value).toLowerCase().includes(term)
-        )
-    );
-    });
+    };
+    const { handleDelete } = useDeleteHandler(authTutorStore.delTutor);
+    const filteredTutor = useTableFilter(tutors, searchTerm);
+
     onMounted(async () => {
         await loadTutors()
     })
@@ -33,6 +31,15 @@
             <Column field="telefone" header="Telefone" style="width: 25%"></Column>
             <Column field="email" header="Email" style="width: 25%"></Column>
             <Column field="endereco" header="Endereço" style="width: 25%"></Column>
+            <Column  style="width: 20%">
+                <template #body="slotProps">
+                <Button
+                    icon="pi pi-trash"
+                    class="p-button-rounded p-button-danger"
+                    @click="handleDelete(slotProps.data.id)"
+                    />
+                </template>
+            </Column>
         </DataTable>
     </div>
 </template>

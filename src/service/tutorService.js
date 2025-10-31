@@ -42,5 +42,23 @@ export const authTutorService = {
             }
         }
     },
+    async deleteTutor(id){
+        try{
+            const response = await fetch(`${API_BASE}/tutores/${id}`, {
+                method: "DELETE"
+            })
+            if(!response.ok){
+                throw new Error(`Erro ao deletar tutor ${response.status}`)
+            }
+            return{
+                success:true
+            }
+        }catch(error){
+            return{
+                success:false,
+                error: error.message || "Erro inesperado ao deletar tutor"
+            }
+        }
+    }
    
 }

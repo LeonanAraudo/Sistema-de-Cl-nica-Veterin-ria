@@ -43,6 +43,18 @@ export const usePetAuthStore = defineStore("authPet",{
                 this.isLoading= false
             }
         },
+         async delPet(id){
+                    this.isLoading = true
+                    try{
+                        const result = await authPetService.deletePet(id)
+                        if (result.success) {
+                          this.pets = this.pets.filter(t => t.id !== id);
+                            }
+                        return result;
+                    }finally{
+                        this.isLoading= false
+                    }
+            }
         
     }
 
