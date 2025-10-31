@@ -1,23 +1,23 @@
 <script setup>
-import { inject } from 'vue'
+    import { inject } from 'vue'
 
-const data = [
-  { iconUrl: "https://img.icons8.com/material-outlined/24/FFFFFF/cat-footprint.png", label: "Cadastrar Pet" },
-  { iconUrl: "https://img.icons8.com/ios-filled/50/FFFFFF/pet.png", label: "Cadastrar Tutor" },
-  { iconUrl: "https://img.icons8.com/pulsar-line/48/FFFFFF/tear-off-calendar.png", label: "Agendar Consulta" },
-  { iconUrl: "https://img.icons8.com/sf-black/64/FFFFFF/list.png", label: "Tabelas" }
-]
+    const data = [
+    { iconUrl: "https://img.icons8.com/material-outlined/24/FFFFFF/cat-footprint.png", label: "Cadastrar Pet" },
+    { iconUrl: "https://img.icons8.com/ios-filled/50/FFFFFF/pet.png", label: "Cadastrar Tutor" },
+    { iconUrl: "https://img.icons8.com/pulsar-line/48/FFFFFF/tear-off-calendar.png", label: "Agendar Consulta" },
+    { iconUrl: "https://img.icons8.com/sf-black/64/FFFFFF/list.png", label: "Tabelas" }
+    ]
 
-const activeItem = inject('activeItem')
+    const activeItem = inject('activeItem')
 
 
-function setActive(label) {
-  if (activeItem?.value !== undefined) {
-    activeItem.value = label
-  } else {
-    activeItem = label
-  }
-}
+    function setActive(label) {
+    if (activeItem?.value !== undefined) {
+        activeItem.value = label
+    } else {
+        activeItem = label
+    }
+    }
 </script>
 
 <template>

@@ -95,6 +95,22 @@
       "idade": "",
       "especie": "",
       "tutor": ""
+    },
+    {
+      "id": "a4d7",
+      "nome": "dwad",
+      "raca": "dwad",
+      "idade": "2",
+      "especie": "22",
+      "tutor": "Maria"
+    },
+    {
+      "id": "66c8",
+      "nome": "kikij",
+      "raca": "mnknionoi",
+      "idade": "88",
+      "especie": "iuhuihiuhui",
+      "tutor": "Leo leo"
     }
   ],
   "tutores": [
@@ -132,6 +148,13 @@
       "telefone": "86998587670",
       "email": "dwadaw",
       "endereco": "Teresina"
+    },
+    {
+      "id": "cc1f",
+      "nome": "Leo leo",
+      "telefone": "86998587670",
+      "email": "01647661",
+      "endereco": "Teresina"
     }
   ],
   "consultas": [
@@ -140,8 +163,24 @@
       "pet": "Rex",
       "veterinario": "Dr. João",
       "data": "2025-10-31",
-      "hora":"20:00",
+      "hora": "20:00",
       "motivo": "Vacina"
+    },
+    {
+      "id": "2bea",
+      "pet": "Rex",
+      "veterinario": "Maria Vitoria",
+      "data": "2025-10-21",
+      "motivo": "blabalblabal",
+      "hora": "18:18"
+    },
+    {
+      "id": "b05c",
+      "pet": "Rex",
+      "veterinario": "Maria Vitoria",
+      "data": "2025-11-03",
+      "motivo": "vacina",
+      "hora": "16:10"
     }
   ],
   "veterinarios": [

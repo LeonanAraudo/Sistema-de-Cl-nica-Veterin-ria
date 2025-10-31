@@ -135,7 +135,6 @@
     border: solid #D8D8D8 1px;
     border-radius: 20px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-
 }
 .boxLine{
     width: 100%;
@@ -202,6 +201,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+:deep(.p-select) {
+    width: 200px !important; 
 }
 .button{
     background-color: #1DA9CF;

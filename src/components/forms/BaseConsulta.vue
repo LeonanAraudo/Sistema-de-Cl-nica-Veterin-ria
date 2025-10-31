@@ -28,7 +28,7 @@
         veterinario: consuData.veterinario,
         data: consuData.data,
         motivo: consuData.motivo,
-        motivo: consuData.hora
+        hora: consuData.hora
       })
       if (result.success) {
             toast.success('Consulta agendada com sucesso!')
@@ -47,7 +47,9 @@
         if (!petResult.success) console.error('Erro ao carregar pets:', petResult.error)
     }
 
-    onMounted(loadData)
+    onMounted(async () => {
+       await loadData()
+    })
 </script>
 <template>
      <div class="container">
@@ -68,22 +70,22 @@
                         id="pet"
                         v-model="consuData.pet"
                         :options="petName"
-                        optionLabel="pet"       
-                        optionValue="pet"       
+                        optionLabel="nome"       
+                        optionValue="nome"       
                         placeholder="Selecione um pet"
                     />
                     </div>
                     <div>
                         <div class="conjunBox">                            
-                            <label for="tutor" class="label">Tutor</label>
+                            <label for="veterinario" class="label">Veterinário</label>
                         </div>
                         <Select
-                        id="tutor"
+                        id="veterinario"
                         v-model="consuData.veterinario"
                         :options="vetName"
-                        optionLabel="veterinario"       
-                        optionValue="veterinario"       
-                        placeholder="Selecione um tutor"
+                        optionLabel="nome"       
+                        optionValue="nome"       
+                        placeholder="Selecione um Veterinário"
                     />
                     </div>
                 </div>
@@ -143,7 +145,6 @@
     border: solid #D8D8D8 1px;
     border-radius: 20px;
     box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-
 }
 .boxLine{
     width: 100%;
@@ -205,6 +206,16 @@
 .conjunBox{
     width: 30%;
 }
+/* Estiliza os selects e inputs de data/hora */
+:deep(.p-select),
+:deep(input[type="date"]),
+:deep(input[type="time"]) {
+    width: 230px !important; 
+}
+:deep(.p-select-panel) {
+    width: 230px !important;
+}
+
 .button{
     background-color: #1DA9CF;
     width: 25%;

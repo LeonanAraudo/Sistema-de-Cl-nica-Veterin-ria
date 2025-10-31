@@ -8,10 +8,9 @@ export const authVetService = {
             throw new Error(`Erro ao buscar veterinarios: ${response.status}`)
         }
         const data = await response.json()
-        const nomes = data.map((vet) => vet.nome)
         return{
             success: true,
-            data: nomes
+            data: data
         }
         }catch(error){
             return{
