@@ -42,15 +42,5 @@ export const authPetService = {
         }
     }
     },
-    async getPetName(){
-            const result = await authPetService.getAllPets()
-            if(!result.success){
-                return result
-            }
-            const nomes = result.data.map(pet => pet.nome)
-            return{
-                success: true,
-                data: nomes
-            }
-    }
+
 }

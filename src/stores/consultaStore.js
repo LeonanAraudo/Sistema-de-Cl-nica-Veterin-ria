@@ -30,6 +30,18 @@ export const useConsultaAuthStore = defineStore("authConsulta",{
             }finally{
              this.isLoading = false
             }
+        },
+        async cadConsulta(consultaData){
+            this.isLoading = true
+            try{
+                const result = await authConsultaService.postConsultas(consultaData)
+                if(result.success){
+                    this.consulta.push(result.data)
+                }
+                return result
+            }finally{
+                this.isLoading = false
+            }
         }
     }
 

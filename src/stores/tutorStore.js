@@ -4,7 +4,6 @@ import { authTutorService } from "@/service/tutorService";
 export const useTutorAuthStore = defineStore("authTutor",{
     state: ()  => ({
         tutors: [],
-        tutorName: [],
         isLoading: false
     }),
     actions: {
@@ -45,26 +44,6 @@ export const useTutorAuthStore = defineStore("authTutor",{
                 this.isLoading = false
             }
         },
-
-        async searchTutorName(){
-            this.isLoading = true
-            try{
-                const result = await authTutorService.getTutorName()
-                if(result.success){
-                    this.tutorName = result.data
-                }
-                return {
-                    success: true
-                }
-            }catch(error){
-                return{
-                        success:false,
-                        error: result.error
-                    }
-            }finally{
-                this.isLoading = false
-            }
-        }
     }
 
 })

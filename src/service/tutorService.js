@@ -42,15 +42,5 @@ export const authTutorService = {
             }
         }
     },
-    async getTutorName(){
-            const result = await authTutorService.getAllTutor()
-            if(!result.success){      
-                return result
-            }
-            const nomes = result.data.map(tutor => tutor.nome)
-            return{
-                success: true,
-                data: nomes
-            }
-    }
+   
 }

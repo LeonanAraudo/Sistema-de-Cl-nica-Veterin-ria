@@ -63,6 +63,38 @@
       "idade": 34,
       "especie": "dwad",
       "tutor": "awdawd"
+    },
+    {
+      "id": "e020",
+      "nome": "ad",
+      "raca": "dad",
+      "idade": "22",
+      "especie": "ad",
+      "tutor": "Maria"
+    },
+    {
+      "id": "b723",
+      "nome": "Leonan",
+      "raca": "Golden",
+      "idade": "22",
+      "especie": "Gato",
+      "tutor": "Maria"
+    },
+    {
+      "id": "96db",
+      "nome": "",
+      "raca": "",
+      "idade": "",
+      "especie": "",
+      "tutor": ""
+    },
+    {
+      "id": "4c27",
+      "nome": "",
+      "raca": "",
+      "idade": "",
+      "especie": "",
+      "tutor": ""
     }
   ],
   "tutores": [
@@ -93,6 +125,13 @@
       "telefone": "86998587670",
       "email": "rrrrr",
       "endereco": "Teresina"
+    },
+    {
+      "id": "4ba2",
+      "nome": "Leo leo",
+      "telefone": "86998587670",
+      "email": "dwadaw",
+      "endereco": "Teresina"
     }
   ],
   "consultas": [
@@ -101,6 +140,7 @@
       "pet": "Rex",
       "veterinario": "Dr. João",
       "data": "2025-10-31",
+      "hora":"20:00",
       "motivo": "Vacina"
     }
   ],

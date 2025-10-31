@@ -4,7 +4,6 @@ import { authPetService } from "@/service/petService";
 export const usePetAuthStore = defineStore("authPet",{
     state: ()  => ({
         pets: [],
-        petNames: [],
         isLoading: false
     }),
     actions: {
@@ -44,25 +43,7 @@ export const usePetAuthStore = defineStore("authPet",{
                 this.isLoading= false
             }
         },
-        async searchPetName(){
-            this.isLoading=true
-            try{
-                const result = await authPetService.getPetName()
-                if(result.success){
-                    this.petNames = result.data
-                }
-                return {
-                    success: true
-                }
-            }catch(error){
-                return{
-                        success:false,
-                        error: result.error
-                    }
-            }finally{
-                this.isLoading = false
-            }
-        }
+        
     }
 
 })
