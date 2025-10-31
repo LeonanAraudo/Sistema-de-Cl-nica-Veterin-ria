@@ -111,6 +111,22 @@
       "idade": "88",
       "especie": "iuhuihiuhui",
       "tutor": "Leo leo"
+    },
+    {
+      "id": "2604",
+      "nome": "BdInOrbit",
+      "raca": "dad",
+      "idade": "22",
+      "especie": "ad",
+      "tutor": "Leo leo"
+    },
+    {
+      "id": "843f",
+      "nome": "aba",
+      "raca": "",
+      "idade": "",
+      "especie": "",
+      "tutor": ""
     }
   ],
   "tutores": [
@@ -181,6 +197,14 @@
       "data": "2025-11-03",
       "motivo": "vacina",
       "hora": "16:10"
+    },
+    {
+      "id": "f336",
+      "pet": "Rex",
+      "veterinario": "Maria Vitoria",
+      "data": "2025-10-29",
+      "motivo": "blabalblabal",
+      "hora": "16:35"
     }
   ],
   "veterinarios": [

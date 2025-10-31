@@ -7,6 +7,7 @@
     import InputText from 'primevue/inputtext';
     import Select from 'primevue/select';
     import Button from 'primevue/button';
+    import '../../assets/form.css'
 
     const authPetStore = usePetAuthStore()
     const authVetStore = useVetAuthStore()
@@ -130,97 +131,10 @@
         </div>
     </div>
 </template>
-<style scoped>
-.container{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.formBox{
-    width: 70%;
-    height: 70%;
-    border: solid #D8D8D8 1px;
-    border-radius: 20px;
-    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.3);
-}
-.boxLine{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-bottom: 70px;
-}
-.line{
-    width: 90%;
-    height: 1px;
-    background-color: #B7B7B7;
-}
-.boxTitle{
-    width: 100%;
-    display: flex;
-    padding-left: 50px;
-}
-.title{
-    font-family: "Poppins";
-    font-weight: bold;
-    font-size: 28px;
-}
-.formulario{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    gap: 30px;
-}
-.label{
-    font-family: "Roboto";
-    font-weight:600;
-}
-.iptNome{
-    width: 80%;
-}
-.inptBox{
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.labelBox{
-    display: flex;
-    width: 80%;
-}
-.reBox{
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-}
-.conjunBox{
-    width: 30%;
-}
-/* Estiliza os selects e inputs de data/hora */
-:deep(.p-select),
-:deep(input[type="date"]),
-:deep(input[type="time"]) {
-    width: 230px !important; 
-}
-:deep(.p-select-panel) {
-    width: 230px !important;
-}
-
-.button{
-    background-color: #1DA9CF;
-    width: 25%;
-}
-.button:hover{
-    background-color: #7bd9f3 !important;
+<style>
+.p-select,
+input[type="date"],
+input[type="time"] {
+  width: 205px;
 }
 </style>

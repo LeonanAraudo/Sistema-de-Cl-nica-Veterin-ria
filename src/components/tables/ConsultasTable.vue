@@ -1,10 +1,11 @@
 <script setup>
     import { Column, DataTable } from 'primevue';
-    import { ref, onMounted, computed } from 'vue';
+    import { ref, onMounted, computed, inject } from 'vue';
     import { useConsultaAuthStore } from '@/stores/consultaStore';
 
     const authConsultaStore = useConsultaAuthStore()
     const isLoading = computed(() => authConsultaStore.isLoading)
+    const searchTerm = inject('searchTerm');
 
     const loadConsultas = async () => {
         const result = await authConsultaStore.allConsultas()
@@ -12,6 +13,14 @@
             console.error('Erro ao carregar consultas:', result.error);
         }
     }
+    const filteredConsulta = computed(() => {
+    const term = searchTerm?.value?.toLowerCase() || '';
+    return authConsultaStore.consulta.filter(consult =>
+        Object.values(consult).some(value =>
+        String(value).toLowerCase().includes(term)
+        )
+    );
+    });
     onMounted(async () => {
         await loadConsultas()
     })
@@ -19,8 +28,7 @@
 <template>
  <div class="card">
         <div v-if="isLoading">⏳ Carregando consultas...</div>
-
-        <DataTable v-else :value="authConsultaStore.consulta" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
+        <DataTable v-else :value="filteredConsulta" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
             <Column field="pet" header="Pet" style="width: 25%"></Column>
             <Column field="veterinario" header="Veterinário" style="width: 25%"></Column>
             <Column field="data" header="Data" style="width: 25%"></Column>

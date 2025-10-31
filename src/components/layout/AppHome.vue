@@ -4,6 +4,8 @@
     import BasePets from '../forms/BasePets.vue';
     import BaseConsulta from '../forms/BaseConsulta.vue';
     import BaseTutor from '../forms/BaseTutor.vue';
+    import BaseTableUnion from '../tables/BaseTableUnion.vue';
+    
     const activeItem = ref('Cadastrar Pet')
     provide('activeItem',activeItem)
 
@@ -12,7 +14,7 @@
        'Cadastrar Pet': BasePets,
         'Cadastrar Tutor': BaseTutor,
         'Agendar Consulta': BaseConsulta,
-        Tabelas:''
+        'Tabelas': BaseTableUnion
     }
 </script>
 <template>

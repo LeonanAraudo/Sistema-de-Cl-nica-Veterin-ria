@@ -10,12 +10,11 @@
 
     const activeItem = inject('activeItem')
 
-
     function setActive(label) {
     if (activeItem?.value !== undefined) {
         activeItem.value = label
     } else {
-        activeItem = label
+        activeItem.value = label
     }
     }
 </script>
