@@ -1,0 +1,121 @@
+{
+  "pets": [
+    {
+      "id": "1",
+      "nome": "Rex",
+      "especie": "Cachorro",
+      "raca": "Labrador",
+      "idade": 4,
+      "tutor": "Maria"
+    },
+    {
+      "id": "5104",
+      "nome": "cadu",
+      "raca": "golden",
+      "idade": 2,
+      "especie": "cachorro",
+      "tutor": "Vitor"
+    },
+    {
+      "id": "7846",
+      "nome": "awda",
+      "raca": "dwadaw",
+      "idade": 6,
+      "especie": "dwadawd",
+      "tutor": "awdawd"
+    },
+    {
+      "id": "42d5",
+      "nome": "",
+      "raca": "",
+      "idade": "",
+      "especie": "",
+      "tutor": ""
+    },
+    {
+      "id": "c399",
+      "nome": "dwa",
+      "raca": "22",
+      "idade": 2,
+      "especie": "dawd",
+      "tutor": "adwa"
+    },
+    {
+      "id": "78dd",
+      "nome": "dwa",
+      "raca": "22",
+      "idade": 2,
+      "especie": "dawd",
+      "tutor": "adwa"
+    },
+    {
+      "id": "8c52",
+      "nome": "zé",
+      "raca": "agua",
+      "idade": 23,
+      "especie": "ra",
+      "tutor": "tu"
+    },
+    {
+      "id": "0bac",
+      "nome": "dwad",
+      "raca": "dwad",
+      "idade": 34,
+      "especie": "dwad",
+      "tutor": "awdawd"
+    }
+  ],
+  "tutores": [
+    {
+      "id": "1",
+      "nome": "Maria",
+      "telefone": "99999-9999",
+      "email": "maria@email.com",
+      "endereco": "Rua A"
+    },
+    {
+      "id": "dd83",
+      "nome": "Leo leo",
+      "telefone": "86998587670",
+      "email": "rrrrr",
+      "endereco": "Teresina"
+    },
+    {
+      "id": "ad50",
+      "nome": "Leo leo",
+      "telefone": "86998587670",
+      "email": "rrrrr",
+      "endereco": "Teresina"
+    },
+    {
+      "id": "6616",
+      "nome": "Leo leo",
+      "telefone": "86998587670",
+      "email": "rrrrr",
+      "endereco": "Teresina"
+    }
+  ],
+  "consultas": [
+    {
+      "id": "1",
+      "pet": "Rex",
+      "veterinario": "Dr. João",
+      "data": "2025-10-31",
+      "motivo": "Vacina"
+    }
+  ],
+  "veterinarios": [
+    {
+      "id": "1",
+      "nome": "Maria Vitoria"
+    },
+    {
+      "id": "2",
+      "nome": "Francisco Silva"
+    },
+    {
+      "id": "3",
+      "nome": "Carlos Reis"
+    }
+  ]
+}
