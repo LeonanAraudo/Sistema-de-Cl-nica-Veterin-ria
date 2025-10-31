@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 
 export const useConsultaAuthStore = defineStore("authConsulta",{
     state: ()  => ({
-        Consulta: [],
+        consulta: [],
         isLoading: false
     }),
     actions: {
@@ -12,7 +12,7 @@ export const useConsultaAuthStore = defineStore("authConsulta",{
             try{
                 const result = await authConsultaService.getAllConsultas()
                 if(result.success){
-                    this.Consulta = result.data
+                    this.consulta = result.data
                     return{
                         success:true,
                     }

@@ -20,7 +20,7 @@
  <div class="card">
         <div v-if="isLoading">⏳ Carregando consultas...</div>
 
-        <DataTable v-else :value="authConsultaStore.Consulta" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
+        <DataTable v-else :value="authConsultaStore.consulta" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
             <Column field="pet" header="Pet" style="width: 25%"></Column>
             <Column field="veterinario" header="Veterinário" style="width: 25%"></Column>
             <Column field="data" header="Data" style="width: 25%"></Column>

@@ -3,8 +3,8 @@ import { authTutorService } from "@/service/tutorService";
 
 export const useTutorAuthStore = defineStore("authTutor",{
     state: ()  => ({
-        Tutors: [],
-        TutorName: [],
+        tutors: [],
+        tutorName: [],
         isLoading: false
     }),
     actions: {
@@ -13,7 +13,7 @@ export const useTutorAuthStore = defineStore("authTutor",{
             try{
                 const result = await authTutorService.getAllTutor()
                 if(result.success){
-                    this.Tutors = result.data
+                    this.tutors = result.data
                     return{
                         success:true,
                     }
@@ -38,7 +38,7 @@ export const useTutorAuthStore = defineStore("authTutor",{
             try{
                 const result = await authTutorService.postTutor(tutorData)
                 if(result.success){
-                    this.Tutors.push(result.data)
+                    this.tutors.push(result.data)
                 }
                 return result
             }finally{
@@ -51,7 +51,7 @@ export const useTutorAuthStore = defineStore("authTutor",{
             try{
                 const result = await authTutorService.getTutorName()
                 if(result.success){
-                    this.TutorName = result.data
+                    this.tutorName = result.data
                 }
                 return {
                     success: true

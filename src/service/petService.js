@@ -1,8 +1,10 @@
 
+const API_BASE = "http://localhost:3000"
+
 export const authPetService = {
     async getAllPets(){
         try{
-            const response = await fetch("http://localhost:3000/pets")
+            const response = await fetch(`${API_BASE}/pets`)
             if(!response.ok){
                 throw new Error(`Erro ao buscar todos os pets ${response.status}`)
             }
@@ -14,15 +16,15 @@ export const authPetService = {
         }catch(error){
             return{
                 success:false,
-                error: error.message | "Erro inesperado ao buscar pets"
+                error: error.message || "Erro inesperado ao buscar pets"
             }
         }
     },
     async postPet(petData){
         try{
-        const response = await fetch("http://localhost:3000/pets", {
+        const response = await fetch(`${API_BASE}/pets`, {
             method: 'POST',
-            headers: {'Content-Type' : 'aplication/json'},
+            headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify(petData)
         })
         if(!response.ok){
@@ -41,23 +43,14 @@ export const authPetService = {
     }
     },
     async getPetName(){
-        try{
-            const response = await fetch("http://localhost:3000/pets")
-            if(!response.ok){
-                throw new Error(`Erro ao pegar nome de pet ${response.status}`)
+            const result = await authPetService.getAllPets()
+            if(!result.success){
+                return result
             }
-            const data = await response.json()
-
-            const nomes = data.map(pet => pet.nome)
+            const nomes = result.data.map(pet => pet.nome)
             return{
                 success: true,
                 data: nomes
             }
-        }catch(error){
-            return{
-                success:false,
-                error: error.message || "Erro inesperado ao pegar nome de pet"
-            }
-        }
     }
 }

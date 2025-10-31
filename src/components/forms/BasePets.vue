@@ -14,9 +14,9 @@
         especie: "",
         tutor: ""
     })
-    const tutorName = computed(() => authTutorStore.TutorName)
+    const tutorName = computed(() => authTutorStore.tutorName)
     const cadPet = async () => {
-        const result = await authPetStore.cadPed(petData)
+        const result = await authPetStore.cadPet(petData)
         if (result.success) {
             toast.success('Pet cadastrado com sucesso!')
         } else {

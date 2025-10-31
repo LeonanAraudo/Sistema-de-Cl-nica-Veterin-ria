@@ -3,8 +3,8 @@ import { authPetService } from "@/service/petService";
 
 export const usePetAuthStore = defineStore("authPet",{
     state: ()  => ({
-        Pets: [],
-        PetNames: [],
+        pets: [],
+        petNames: [],
         isLoading: false
     }),
     actions: {
@@ -13,7 +13,7 @@ export const usePetAuthStore = defineStore("authPet",{
             try{
                 const result = await authPetService.getAllPets()
                 if(result.success){
-                    this.Pets = result.data
+                    this.pets = result.data
                     return{
                         success:true,
                     }
@@ -32,12 +32,12 @@ export const usePetAuthStore = defineStore("authPet",{
              this.isLoading = false
             }
         },
-        async cadPed(petData){
+        async cadPet(petData){
             this.isLoading= true
             try{
                 const result = await authPetService.postPet(petData)
                 if(result.success){
-                    this.Pets.push(result.data)
+                    this.pets.push(result.data)
                 } 
                 return result
             }finally{
@@ -49,7 +49,7 @@ export const usePetAuthStore = defineStore("authPet",{
             try{
                 const result = await authPetService.getPetName()
                 if(result.success){
-                    this.PetNames = result.data
+                    this.petNames = result.data
                 }
                 return {
                     success: true
