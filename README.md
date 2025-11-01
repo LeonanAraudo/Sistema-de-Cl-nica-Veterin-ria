@@ -1,8 +1,7 @@
 # Sistema de Clínica Veterinária
 
 ## 🐾 Sobre o Projeto
-Este é um sistema de gestão para uma clínica veterinária, desenvolvido como uma SPA (Single Page Application) utilizando Vue.js 3. O objetivo é permitir o cadastro, listagem e gerenciamento de pets, tutores e consultas, simulando uma integração com uma API mockada localmente.
-
+Este é um sistema de gestão para uma clínica veterinária, desenvolvido como uma SPA (Single Page Application) utilizando Vue.js 3. O objetivo é permitir o cadastro, listagem e gerenciamento de pets, tutores e consultas, simulando uma integração com uma API mockada localmente.O sistema foi desenvolvido para uso em interfaces desktop, mas o design também oferece suporte para dispositivos móveis.
 ---
 
 ## 🚀 Funcionalidades
