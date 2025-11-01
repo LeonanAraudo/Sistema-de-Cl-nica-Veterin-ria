@@ -59,5 +59,27 @@ export const authPetService = {
                 error: error.message || "Erro inesperado ao deletar pet"
             }
         }
+    },
+     async updatePet(id,updatePet){
+        try{
+            const response = await fetch(`${API_BASE}/pets/${id}`, {
+                method: "PATCH",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(updatePet)
+            })
+            if(!response.ok){
+                throw new Error("Erro ao editar dados do pet")
+            }
+            const data = await response.json()
+            return{
+                success: true,
+                data: data
+            }
+        }catch(error){
+            return{
+                success: false,
+                error: error.message || "Erro inesperado ao tentar editar pet"
+            }
+        }
     }
 }

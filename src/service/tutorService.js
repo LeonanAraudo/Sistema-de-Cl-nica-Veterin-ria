@@ -59,6 +59,28 @@ export const authTutorService = {
                 error: error.message || "Erro inesperado ao deletar tutor"
             }
         }
+    },
+    async updateTutor(id,updateTutor){
+        try{
+            const response = await fetch(`${API_BASE}/tutores/${id}`, {
+                method: "PATCH",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(updateTutor)
+            })
+            if(!response.ok){
+                throw new Error("Erro ao editar dados do tutor")
+            }
+            const data = await response.json()
+            return{
+                success: true,
+                data: data
+            }
+        }catch(error){
+            return{
+                success: false,
+                error: error.message || "Erro inesperado ao tentar editar tutor"
+            }
+        }
     }
    
 }

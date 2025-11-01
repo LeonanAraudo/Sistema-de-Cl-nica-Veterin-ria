@@ -5,7 +5,7 @@
     import InputText from 'primevue/inputtext';
     import Button from 'primevue/button';
     import '../../assets/form.css'
-    
+
     const authTutorStore = useTutorAuthStore()
     const isLoading = computed(() => authTutorStore.isLoading)
     const tutorData = reactive({
@@ -14,7 +14,6 @@
         email: "",
         endereco: "",
     })
-
     const cadTutor = async () => {
         const tutorDataToSend = {
             nome: tutorData.nome,
@@ -23,7 +22,7 @@
             endereco: tutorData.endereco
         }
         
-        const result = await authTutorStore.cadTutor(tutorDataToSend)
+    const result = await authTutorStore.cadTutor(tutorDataToSend)
         if (result.success) {
             toast.success('Tutor cadastrado com sucesso!')
         } else {

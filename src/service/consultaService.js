@@ -44,7 +44,7 @@ export const authConsultaService = {
     },
     async deleteConsulta(id){
         try{
-            const response = await fetch(`${API_BASE}/consulta/${id}`, {
+            const response = await fetch(`${API_BASE}/consultas/${id}`, {
                 method: "DELETE"
             })
             if(!response.ok){
@@ -57,6 +57,28 @@ export const authConsultaService = {
             return{
                 success:false,
                 error: error.message || "Erro inesperado ao deletar pet"
+            }
+        }
+    },
+     async updateConsulta(id,updateConsulta){
+        try{
+            const response = await fetch(`${API_BASE}/consultas/${id}`, {
+                method: "PATCH",
+                headers: {"Content-Type" : "application/json"},
+                body: JSON.stringify(updateConsulta)
+            })
+            if(!response.ok){
+                throw new Error("Erro ao editar dados da consulta")
+            }
+            const data = await response.json()
+            return{
+                success: true,
+                data: data
+            }
+        }catch(error){
+            return{
+                success: false,
+                error: error.message || "Erro inesperado ao tentar editar consulta"
             }
         }
     }
