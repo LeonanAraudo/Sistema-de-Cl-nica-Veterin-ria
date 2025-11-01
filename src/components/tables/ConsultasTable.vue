@@ -1,8 +1,9 @@
 <script setup>
-    import { Column, DataTable } from 'primevue';
+    import { Button, Column, DataTable } from 'primevue';
     import { onMounted, computed, inject } from 'vue';
     import { useConsultaAuthStore } from '@/stores/consultaStore';
     import { useTableFilter } from '@/composables/useTableFilter';
+    import { useDeleteHandler } from '@/composables/useDeleteHandler';
 
     const authConsultaStore = useConsultaAuthStore();
     const isLoading = computed(() => authConsultaStore.isLoading);
@@ -15,7 +16,7 @@
             console.error('Erro ao carregar consultas:', result.error);
         }
     };
-
+    const { handleDelete } = useDeleteHandler(authConsultaStore.delConsulta);
     const filteredConsulta = useTableFilter(consultas, searchTerm);
     onMounted(async () => {
         await loadConsultas()
@@ -29,6 +30,15 @@
             <Column field="veterinario" header="Veterinário" style="width: 25%"></Column>
             <Column field="data" header="Data" style="width: 25%"></Column>
             <Column field="motivo" header="Motivo" style="width: 25%"></Column>
+            <Column  style="width: 20%">
+             <template #body="slotProps">
+                '  <Button
+                        icon="pi pi-trash"
+                        class="p-button-rounded p-button-danger"
+                        @click="handleDelete(slotProps.data.id)"
+                        />
+                    </template>
+            </Column>'
         </DataTable>
     </div>
 </template>

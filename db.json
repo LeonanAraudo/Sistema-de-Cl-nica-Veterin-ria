@@ -1,14 +1,6 @@
 {
   "pets": [
     {
-      "id": "1",
-      "nome": "Rex",
-      "especie": "Cachorro",
-      "raca": "Labrador",
-      "idade": 4,
-      "tutor": "Maria"
-    },
-    {
       "id": "5104",
       "nome": "cadu",
       "raca": "golden",
