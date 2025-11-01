@@ -90,4 +90,19 @@
   width: 30px;
   height: 30px;
 }
+
+@media (max-width: 768px) {
+  .logo {
+    display: none; 
+  }
+
+  .label {
+    display: none; 
+  }
+
+  .iconBox {
+    justify-content: center; 
+    padding-left: 0; 
+  }
+}
 </style>

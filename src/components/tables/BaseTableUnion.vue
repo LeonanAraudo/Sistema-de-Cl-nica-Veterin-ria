@@ -80,7 +80,8 @@
 }
 .compo{
     flex:1;
-    overflow-y: auto
+    overflow-y: auto;
+    overflow-x: auto;
 }
 
 @media (max-width: 768px) {
@@ -93,6 +94,7 @@
     margin-top: 20px;
   }
   .compo {
+    padding: 0 1rem;
     overflow-x: auto;
   }
   .iptPesquisa {

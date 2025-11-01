@@ -48,4 +48,16 @@
 .btForce:hover{
     background-color: #7bd9f3 !important;
 }
+@media (max-width: 768px) {
+  .listButtons {
+    flex-direction: column; 
+    gap: 10px; 
+    align-items: center; 
+  }
+
+  .btForce {
+    width: 200px !important; 
+    font-size: 16px !important; 
+  }
+}
 </style>
