@@ -1,15 +1,25 @@
 <script setup>
     import { Button, Column, DataTable, Dialog, InputText } from 'primevue';
-    import { onMounted, computed, inject } from 'vue';
+    import { onMounted, computed, inject, ref } from 'vue';
     import { useTutorAuthStore } from '@/stores/tutorStore';
     import { useTableFilter } from '@/composables/useTableFilter';
     import { useDeleteHandler } from '@/composables/useDeleteHandler';
     import { useEditEntity } from '@/composables/useEditHandler';
+import BaseModalTables from '../common/BaseModalTables.vue';
 
     const authTutorStore = useTutorAuthStore();
     const isLoading = computed(() => authTutorStore.isLoading);
     const searchTerm = inject('searchTerm');
     const tutors = computed(() => authTutorStore.tutors);
+
+    const isDetailsDialog = ref(false);
+    const selectedTutor = ref(null);
+
+    const openDetailsDialog = (tutor) => {
+        selectedTutor.value = tutor;      
+        isDetailsDialog.value = true; 
+    };
+
     const loadTutors = async () => {
         const result = await authTutorStore.allTutors();
         if (!result.success) {
@@ -34,11 +44,20 @@
 <template>
  <div class="card">
         <div v-if="isLoading">⏳ Carregando tutores...</div>
-        <DataTable v-else :value="filteredTutor" paginator :rows="5" :rowsPerPageOptions="[5, 10, 20, 50]" tableStyle="min-width: 50rem">
+        <DataTable 
+            @row-click="openDetailsDialog($event.data)"  
+            v-else 
+            :value="filteredTutor" 
+            paginator :rows="5" 
+            :rowsPerPageOptions="[5, 10, 20, 50]" 
+            tableStyle="min-width: 50rem"
+            class="clickable"
+        >
             <Column field="nome" header="Nome" style="width: 25%"></Column>
             <Column field="telefone" header="Telefone" style="width: 25%"></Column>
             <Column field="email" header="Email" style="width: 25%"></Column>
             <Column field="endereco" header="Endereço" style="width: 25%"></Column>
+
             <Column  style="width: 20%">
                 <template #body="slotProps">
                     <Button
@@ -48,6 +67,7 @@
                         />
                 </template>
             </Column>
+
             <Column  style="width: 20%">
                 <template #body="slotProps">
                    <Button
@@ -58,7 +78,13 @@
                 </template>
             </Column>
         </DataTable>
-         <div >
+
+        <BaseModalTables
+            v-model="isDetailsDialog"
+            :item="selectedTutor"
+            title="Detalhes do tutor"
+        />
+         <div>
             <Dialog
                 v-model:visible="isEditDialog"
                 modal

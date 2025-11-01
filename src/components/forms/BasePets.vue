@@ -63,7 +63,9 @@
                         name="name"
                         id="name"
                         type="text"
-                        placeholder="Digite o nome do pet" />
+                        placeholder="Digite o nome do pet" 
+                        required
+                        />
                 </div>
                 <div class="reBox">
                     <div>
@@ -75,7 +77,9 @@
                             name="raca"
                             id="raca"
                             type="text" 
-                            placeholder="Golden,Shiba,Ararinha etc" />
+                            placeholder="Golden,Shiba,Ararinha etc" 
+                            required
+                            />
                     </div>
                     <div>
                         <div class="conjunBox">
@@ -86,7 +90,9 @@
                             name="especie" 
                             id="especie" 
                             type="text" 
-                            placeholder="Gato,Cachorro,Ave etc" />
+                            placeholder="Gato,Cachorro,Ave etc" 
+                            required
+                            />
                     </div>
                 </div>
                 <div class="itBox">
@@ -99,7 +105,9 @@
                             name="idade"
                             id="idade"
                              type="number" 
-                            placeholder="Username" />
+                            placeholder="Digite a idade do pet" 
+                            required
+                            />
                     </div>
                     <div>
                         <div class="conjunBox">                            

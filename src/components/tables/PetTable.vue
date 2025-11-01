@@ -1,11 +1,12 @@
 <script setup>
     import { Button, Column, DataTable, Dialog, InputText, Select } from 'primevue';
-    import { onMounted, computed, inject } from 'vue';
+    import { onMounted, computed, inject, ref } from 'vue';
     import { usePetAuthStore } from '../../stores/petStore';
     import { useTableFilter } from '@/composables/useTableFilter';
     import { useDeleteHandler } from '@/composables/useDeleteHandler';
     import { useTutorAuthStore } from '@/stores/tutorStore';
     import { useEditEntity } from '@/composables/useEditHandler';
+    import BaseModalTables from '../common/BaseModalTables.vue';
 
     const authPetStore = usePetAuthStore();
     const authTutorStore = useTutorAuthStore();
@@ -13,9 +14,16 @@
     const searchTerm = inject('searchTerm');
     const pets = computed(() => authPetStore.pets);
 
+    const isDetailsDialog = ref(false);
+    const selectedPet = ref(null);
+
+    const openDetailsDialog = (pet) => {
+        selectedPet.value = pet;      
+        isDetailsDialog.value = true; 
+    };
+
     const loadPets = async () => {
     const result = await authPetStore.allPets();
-
     if (!result.success) {
         console.error('Erro ao carregar pets:', result.error);
     }
@@ -40,12 +48,14 @@
   <div class="card">
     <div v-if="isLoading">⏳ Carregando pets...</div>
     <DataTable
+      @row-click="openDetailsDialog($event.data)"  
       v-else
       :value="filteredPets"
       paginator
       :rows="5"
       :rowsPerPageOptions="[5, 10, 20, 50]"
       tableStyle="min-width: 50rem"
+      class="clickable"
     >
       <Column field="nome" header="Nome" style="width: 20%" />
       <Column field="raca" header="Raça" style="width: 20%" />
@@ -63,7 +73,14 @@
             </template>
        </Column>
     </DataTable>
-     <div >
+
+    <BaseModalTables
+        v-model="isDetailsDialog"
+        :item="selectedPet"
+        title="Detalhes do pet"
+        />
+        
+     <div>
             <Dialog
                 v-model:visible="isEditDialog"
                 modal

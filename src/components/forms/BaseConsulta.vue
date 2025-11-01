@@ -68,12 +68,12 @@
                             <label for="pet" class="label">Pet</label>
                         </div>
                         <Select
-                        id="pet"
-                        v-model="consuData.pet"
-                        :options="petName"
-                        optionLabel="nome"       
-                        optionValue="nome"       
-                        placeholder="Selecione um pet"
+                            id="pet"
+                            v-model="consuData.pet"
+                            :options="petName"
+                            optionLabel="nome"       
+                            optionValue="nome"       
+                            placeholder="Selecione um pet"
                     />
                     </div>
                     <div>
@@ -81,12 +81,12 @@
                             <label for="veterinario" class="label">Veterinário</label>
                         </div>
                         <Select
-                        id="veterinario"
-                        v-model="consuData.veterinario"
-                        :options="vetName"
-                        optionLabel="nome"       
-                        optionValue="nome"       
-                        placeholder="Selecione um Veterinário"
+                            id="veterinario"
+                            v-model="consuData.veterinario"
+                            :options="vetName"
+                            optionLabel="nome"       
+                            optionValue="nome"       
+                            placeholder="Selecione um Veterinário"
                     />
                     </div>
                 </div>
@@ -100,7 +100,9 @@
                             name="hora"
                             id="hora"
                             type="time" 
-                            placeholder="(00) 00000-0000" />
+                            placeholder="(00) 00000-0000"
+                            required
+                            />
                     </div>
                     <div>
                         <div class="conjunBox">
@@ -111,6 +113,7 @@
                             name="data" 
                             id="data" 
                             type="date" 
+                            required
                           />
                     </div>
                 </div>
@@ -124,7 +127,9 @@
                         name="motivo"
                         id="motivo"
                         type="text"
-                        placeholder="Digite o motivo do agendamento" />
+                        placeholder="Digite o motivo do agendamento"
+                        required
+                        />
                 </div>
                 <Button class="button" type="submit" :disabled="isLoading">{{ isLoading ? 'Agendando...' : 'Agendar Consulta' }}</Button>
             </form>

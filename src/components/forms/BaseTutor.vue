@@ -51,7 +51,9 @@
                         name="nome"
                         id="nome"
                         type="text"
-                        placeholder="Digite o nome do pet" />
+                        placeholder="Digite o nome do tutor"
+                        required
+                        />
                 </div>
                 <div class="reBox">
                     <div>
@@ -63,7 +65,9 @@
                             name="telefone"
                             id="telefone"
                             type="text" 
-                            placeholder="(00) 00000-0000" />
+                            placeholder="(00) 00000-0000"
+                            required
+                            />
                     </div>
                     <div>
                         <div class="conjunBox">
@@ -73,8 +77,10 @@
                             v-model="tutorData.email"  
                             name="email" 
                             id="email" 
-                            type="text" 
-                            placeholder="Gato,Cachorro,Ave etc" />
+                            type="email" 
+                            placeholder="Digite seu email" 
+                            required
+                            />
                     </div>
                 </div>
                 <div class="inptBox">
@@ -87,7 +93,9 @@
                             name="endereco"
                             id="endereco"
                             type="text" 
-                            placeholder="Digite o endereço" />
+                            placeholder="Digite o endereço"
+                            required
+                            />
                 </div>
                 <Button class="button" type="submit" :disabled="isLoading">{{ isLoading ? 'Cadastrando...' : 'Cadastrar Tutor' }}</Button>
             </form>

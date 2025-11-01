@@ -10,8 +10,7 @@
     provide('activeItem',activeItem)
 
     const components = {
-        Home: BasePets,
-       'Cadastrar Pet': BasePets,
+        'Cadastrar Pet': BasePets,
         'Cadastrar Tutor': BaseTutor,
         'Agendar Consulta': BaseConsulta,
         'Tabelas': BaseTableUnion
