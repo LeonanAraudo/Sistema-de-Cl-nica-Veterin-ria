@@ -82,4 +82,21 @@
     flex:1;
     overflow-y: auto
 }
+
+@media (max-width: 768px) {
+  .botoes {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .pesquisa {
+    width: 90%;
+    margin-top: 20px;
+  }
+  .compo {
+    overflow-x: auto;
+  }
+  .iptPesquisa {
+    font-size: 0.9rem;
+  }
+}
 </style>

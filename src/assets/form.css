@@ -88,3 +88,25 @@
 .button:hover{
     background-color: #7bd9f3 !important;
 }
+
+@media (max-width: 768px) {
+  .formBox {
+    width: 90%;
+    height: auto;
+    margin-bottom: 5%;
+  }
+
+  .formulario {
+    gap: 20px;
+  }
+
+  .reBox, .itBox {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .button {
+    width: 100% !important;
+  }
+}
