@@ -104,14 +104,14 @@
                 />
                 </div>
                 <div class="inptboxMo">
-                    <label for="tutor" class="labelE">Pet</label>
+                    <label for="pet" class="labelE">Pet</label>
                     <Select
-                    id="tutor"
+                    id="pet"
                     v-model="editForm.pet"
                     :options="petName"
                     optionLabel="nome"       
                     optionValue="nome"       
-                    placeholder="Selecione um tutor"
+                    placeholder="Selecione um pet"
                     class="inptMo"
                 />
                 </div>
