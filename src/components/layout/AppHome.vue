@@ -15,6 +15,7 @@
         'Agendar Consulta': BaseConsulta,
         'Tabelas': BaseTableUnion
     }
+    
 </script>
 <template>
     <div class="conteiner">

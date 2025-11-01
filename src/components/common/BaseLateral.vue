@@ -23,7 +23,6 @@
   <div class="sidebar">
     <div class="header">
       <p class="logo">PetCode</p>
-      
     </div>
 
     <div class="list">

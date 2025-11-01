@@ -14,6 +14,7 @@
         email: "",
         endereco: "",
     })
+
     const cadTutor = async () => {
         const tutorDataToSend = {
             nome: tutorData.nome,
@@ -21,13 +22,12 @@
             email: tutorData.email,
             endereco: tutorData.endereco
         }
-        
-    const result = await authTutorStore.cadTutor(tutorDataToSend)
-        if (result.success) {
-            toast.success('Tutor cadastrado com sucesso!')
-        } else {
-            toast.error(result.error || 'Erro ao cadastrar tutor')
-        }
+        const result = await authTutorStore.cadTutor(tutorDataToSend)
+            if (result.success) {
+                toast.success('Tutor cadastrado com sucesso!')
+            } else {
+                toast.error(result.error || 'Erro ao cadastrar tutor')
+            }
     }
 
 </script>

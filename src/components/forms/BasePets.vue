@@ -7,9 +7,11 @@
     import Select from 'primevue/select';
     import Button from 'primevue/button';
     import '../../assets/form.css'
+
     const authPetStore = usePetAuthStore()
     const authTutorStore = useTutorAuthStore()
     const isLoading = computed(() => authPetStore.isLoading)
+    const tutorName = computed(() => authTutorStore.tutors)
     const petData = reactive({
         nome: "",
         raca: "",
@@ -17,7 +19,7 @@
         especie: "",
         tutor: ""
     })
-    const tutorName = computed(() => authTutorStore.tutors)
+    
     const cadPet = async () => {
         const petDataToSend = {
             nome: petData.nome,
@@ -26,13 +28,12 @@
             especie: petData.especie,
             tutor: petData.tutor
         }
-        
         const result = await authPetStore.cadPet(petDataToSend)
-        if (result.success) {
-            toast.success('Pet cadastrado com sucesso!')
-        } else {
-            toast.error(result.error || 'Erro ao cadastrar pet')
-        }
+            if (result.success) {
+                toast.success('Pet cadastrado com sucesso!')
+            } else {
+                toast.error(result.error || 'Erro ao cadastrar pet')
+            }
     }
 
     const loadTutor = async () => {
@@ -41,6 +42,7 @@
             console.error(result.error)
         }
     }
+
     onMounted(() => loadTutor())
 </script>
 <template>
