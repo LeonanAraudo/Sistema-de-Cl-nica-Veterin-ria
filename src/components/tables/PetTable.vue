@@ -46,33 +46,35 @@
 
 <template>
   <div class="card">
-    <div v-if="isLoading">⏳ Carregando pets...</div>
-    <DataTable
-      @row-click="openDetailsDialog($event.data)"  
-      v-else
-      :value="filteredPets"
-      paginator
-      :rows="5"
-      :rowsPerPageOptions="[5, 10, 20, 50]"
-      tableStyle="min-width: 50rem"
-      class="clickable"
-    >
-      <Column field="nome" header="Nome" style="width: 20%" />
-      <Column field="raca" header="Raça" style="width: 20%" />
-      <Column field="especie" header="Espécie" style="width: 20%" />
-      <Column field="idade" header="Idade" style="width: 20%" />
-      <Column field="tutor" header="Tutor" style="width: 20%" />
-      <Column style="width: 20%">
-        <template #body="slotProps">
-            <Button icon="pi pi-trash" class="p-button-rounded p-button-danger"  @click="handleDelete(slotProps.data.id)" />
-        </template>
-       </Column>
-       <Column  style="width: 20%">
+      <div class="scroll-container">
+        <div v-if="isLoading">⏳ Carregando pets...</div>
+        <DataTable
+          @row-click="openDetailsDialog($event.data)"  
+          v-else
+          :value="filteredPets"
+          paginator
+          :rows="5"
+          :rowsPerPageOptions="[5, 10, 20, 50]"
+          tableStyle="min-width: 50rem"
+          class="clickable"
+        >
+          <Column field="nome" header="Nome" style="width: 20%" />
+          <Column field="raca" header="Raça" style="width: 20%" />
+          <Column field="especie" header="Espécie" style="width: 20%" />
+          <Column field="idade" header="Idade" style="width: 20%" />
+          <Column field="tutor" header="Tutor" style="width: 20%" />
+          <Column style="width: 20%">
             <template #body="slotProps">
-                <Button icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2" @click="openEditDialog(slotProps.data)" />
+                <Button icon="pi pi-trash" class="p-button-rounded p-button-danger"  @click="handleDelete(slotProps.data.id)" />
             </template>
-       </Column>
-    </DataTable>
+           </Column>
+           <Column  style="width: 20%">
+                <template #body="slotProps">
+                    <Button icon="pi pi-pencil" class="p-button-rounded p-button-warning mr-2" @click="openEditDialog(slotProps.data)" />
+                </template>
+           </Column>
+        </DataTable>
+    </div>
 
     <BaseModalTables
         v-model="isDetailsDialog"
@@ -135,5 +137,8 @@
 .card {
   margin-top: 1rem;
 }
-
+.scroll-container {
+  width: 100%;
+  overflow-x: auto;
+}
 </style>

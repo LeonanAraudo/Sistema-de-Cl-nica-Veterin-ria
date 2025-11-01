@@ -86,7 +86,6 @@ button:focus-visible {
 
 @media (max-width: 768px) {
   #app {
-    padding: 1rem;
     text-align: left;
   }
 

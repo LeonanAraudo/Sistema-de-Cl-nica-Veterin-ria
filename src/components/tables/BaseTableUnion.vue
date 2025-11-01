@@ -47,7 +47,7 @@
     </div>
 
     <div class="compo">
-      <component :is="components[activeItem]" />
+            <component :is="components[activeItem]" />
     </div>
   </div>
 </template>
@@ -94,11 +94,15 @@
     margin-top: 20px;
   }
   .compo {
-    padding: 0 1rem;
-    overflow-x: auto;
+    overflow-x: auto; 
+    display: block; 
+    padding: 0 0.5rem; 
   }
   .iptPesquisa {
     font-size: 0.9rem;
+  }
+  table {
+    min-width: 600px; 
   }
 }
 </style>
